@@ -1,0 +1,709 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Examen - Barbara Sanchez</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff7fb;
+            color: #493844;
+        }
+
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #ffffff;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 3px 15px #e8cbdc;
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            color: #d94f91;
+            font-size: 27px;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #694b60;
+            padding: 9px 13px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #f8d5e7;
+            color: #b52e70;
+        }
+
+        section {
+            padding: 65px 8%;
+            scroll-margin-top: 80px;
+        }
+
+        #inicio {
+            min-height: 490px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg, #ffe0ef, #fff2f8, #f9e4ff);
+        }
+
+        .presentacion {
+            max-width: 550px;
+        }
+
+        .presentacion h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(38px, 5vw, 60px);
+            color: #c63d83;
+            margin-bottom: 15px;
+        }
+
+        .presentacion h2 {
+            font-size: 22px;
+            color: #77536c;
+            margin-bottom: 18px;
+        }
+
+        .presentacion p {
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .foto-perfil {
+            width: 270px;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 8px 25px #d7a6c2;
+        }
+
+        .boton {
+            display: inline-block;
+            border: none;
+            background: #d94f91;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            margin: 5px 5px 5px 0;
+        }
+
+        .boton:hover {
+            background: #ad2e6d;
+            transform: translateY(-2px);
+        }
+
+        .boton-claro {
+            background: #f7d4e6;
+            color: #9c326a;
+        }
+
+        .boton-claro:hover {
+            background: #edb4d2;
+        }
+
+        .titulo-seccion {
+            font-family: 'Fredoka', sans-serif;
+            color: #c63d83;
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #886b7e;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        #sobre-mi {
+            background: white;
+        }
+
+        .sobre-contenido {
+            max-width: 850px;
+            margin: auto;
+            background: #fff5fa;
+            padding: 30px;
+            border-radius: 22px;
+            border: 2px solid #f7d9e9;
+            line-height: 1.9;
+            box-shadow: 0 5px 18px #f1dce8;
+        }
+
+        .datos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .dato {
+            background: white;
+            padding: 17px;
+            border-radius: 15px;
+            border-left: 5px solid #e77caf;
+        }
+
+        .dato strong {
+            color: #c63d83;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #familia {
+            background: #fff0f7;
+        }
+
+        .rejilla {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .tarjeta {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px #e8c9da;
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px #dfb3cc;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tarjeta-contenido {
+            padding: 18px;
+            text-align: center;
+        }
+
+        .tarjeta h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 23px;
+            color: #c63d83;
+            margin-bottom: 8px;
+        }
+
+        .tarjeta p {
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .tarjeta .boton {
+            margin: 5px 0 0;
+        }
+
+        #comidas {
+            background: white;
+        }
+
+        #peliculas {
+            background: #fff0f7;
+        }
+
+        .icono {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .final-pagina {
+            background: #d94f91;
+            color: white;
+            text-align: center;
+            padding: 28px 15px;
+            line-height: 1.8;
+        }
+
+        .final-pagina strong {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 22px;
+        }
+
+        /* Ventana para ver a cada familiar */
+        #detalle {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            background: #fff7fb;
+            overflow-y: auto;
+            padding: 35px 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detalle-contenido {
+            width: 100%;
+            max-width: 650px;
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 30px #dfb8ce;
+        }
+
+        .detalle-contenido img {
+            width: 100%;
+            max-width: 350px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .detalle-contenido h2 {
+            font-family: 'Fredoka', sans-serif;
+            color: #c63d83;
+            font-size: 36px;
+        }
+
+        .detalle-contenido p {
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            #inicio {
+                text-align: center;
+                padding-top: 45px;
+            }
+
+            .foto-perfil {
+                width: 220px;
+                height: 220px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+
+            .titulo-seccion {
+                font-size: 32px;
+            }
+
+            .detalle-contenido {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Mi Examen ♡</div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#familia">Mi familia</a>
+            <a href="#comidas">Comidas</a>
+            <a href="#peliculas">Películas o series</a>
+        </nav>
+    </header>
+
+    <!-- PRESENTACIÓN PRINCIPAL -->
+    <section id="inicio">
+        <div class="presentacion">
+            <h1>¡Hola, soy Barbara!</h1>
+            <h2>Estudiante de 4.º Bachillerato en Computación</h2>
+
+            <p>
+                Bienvenidos a mi página web personal. Aquí podrás conocer un
+                poco más sobre mí, mi familia, algunas de mis comidas favoritas
+                y las películas o series que me gustan.
+            </p>
+
+            <a class="boton" href="#sobre-mi">Conóceme más ♡</a>
+        </div>
+
+        <img
+            class="foto-perfil"
+            src="https://i.postimg.cc/9fzGf0JK/cff48d2f-0572-4a84-af2c-2d6e8b49f350.jpg=400"
+            alt="Foto de Barbara"
+        >
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi">
+        <h2 class="titulo-seccion">Sobre mí 🌷</h2>
+        <p class="subtitulo">Un poquito de quién soy y de lo que me gusta.</p>
+
+        <div class="sobre-contenido">
+            <p>
+                Mi nombre es Barbara Sanchez y actualmente estudio cuarto
+                Bachillerato en Computación. Me interesa la tecnología y me
+                gusta aprender cosas nuevas que me puedan servir en el futuro.
+                También disfruto pasar tiempo con mi familia y conocer cosas
+                diferentes. Esta página representa una parte de mi vida y
+                algunas de las cosas que son especiales para mí.
+            </p>
+
+            <div class="datos">
+                <div class="dato">
+                    <strong>🎓 Estudios</strong>
+                    4.º Bachillerato en Computación
+                </div>
+
+                <div class="dato">
+                    <strong>💻 Intereses</strong>
+                    Tecnología y aprendizaje
+                </div>
+
+                <div class="dato">
+                    <strong>👨‍👩‍👧‍👦 Personas importantes</strong>
+                    Mi familia
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:25px;">
+            <button class="boton" onclick="irASeccion('inicio')">
+                Regresar a la página principal
+            </button>
+        </div>
+    </section>
+
+    <!-- MI FAMILIA -->
+    <section id="familia">
+        <h2 class="titulo-seccion">Mi familia 💗</h2>
+        <p class="subtitulo">
+            Mi familia es una parte importante de mi vida.
+            Pulsa en una tarjeta para conocer más.
+        </p>
+
+        <div class="rejilla">
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/66Dv1rJq/463150eb-fa5f-48e5-8134-78fcd1973342.jpg"
+                    alt="Mi tío"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>Mi tío</h3>
+                    <p>Una persona especial de mi familia.</p>
+                    <button class="boton" onclick="mostrarDetalle(
+                        'Mi tío',
+                        'https://i.postimg.cc/66Dv1rJq/463150eb-fa5f-48e5-8134-78fcd1973342.jpg',
+                        'Una persona especial que forma parte de mi familia y que siempre tendrá un lugar importante en mi vida.'
+                    )">Ver más</button>
+                </div>
+            </article>
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/66LhRb4g/78884ba5-4704-4298-9bb5-a2ecb56a9cb4.jpg"
+                    alt="Mi prima"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>Mi prima</h3>
+                    <p>Una persona con quien compartir recuerdos.</p>
+                    <button class="boton" onclick="mostrarDetalle(
+                        'Mi prima',
+                        'https://i.postimg.cc/66LhRb4g/78884ba5-4704-4298-9bb5-a2ecb56a9cb4.jpg',
+                        'Mi prima es una persona especial con quien puedo compartir momentos y buenos recuerdos.'
+                    )">Ver más</button>
+                </div>
+            </article>
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/wj35C6fZ/7d3128a8-a869-41c5-85e6-d639d82e634e.jpg"
+                    alt="Mi mamá"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>Mi mamá</h3>
+                    <p>Una de las personas más importantes de mi vida.</p>
+                    <button class="boton" onclick="mostrarDetalle(
+                        'Mi mamá',
+                        'https://i.postimg.cc/wj35C6fZ/7d3128a8-a869-41c5-85e6-d639d82e634e.jpg',
+                        'Mi mamá es una de las personas más importantes de mi vida y siempre ha estado para apoyarme.'
+                    )">Ver más</button>
+                </div>
+            </article>
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/Kzhn3tGv/Captura-de-pantalla-2026-10-06-171513.png"
+                    alt="Mi abuelo"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>Mi abuelo</h3>
+                    <p>Una persona a quien quiero mucho.</p>
+                    <button class="boton" onclick="mostrarDetalle(
+                        'Mi abuelo',
+                        'https://i.postimg.cc/Kzhn3tGv/Captura-de-pantalla-2026-10-06-171513.png',
+                        'Mi abuelo es una persona muy especial para mí y alguien de quien puedo aprender muchas cosas.'
+                    )">Ver más</button>
+                </div>
+            </article>
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/Y9NQ6j0N/Captura-de-pantalla-2026-10-06-171535.png"
+                    alt="Mi abuela"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>Mi abuela</h3>
+                    <p>Una persona muy especial en mi familia.</p>
+                    <button class="boton" onclick="mostrarDetalle(
+                        'Mi abuela',
+                        'https://i.postimg.cc/Y9NQ6j0N/Captura-de-pantalla-2026-10-06-171535.png',
+                        'Mi abuela es una persona muy importante en mi vida y sus recuerdos siempre serán especiales para mí.'
+                    )">Ver más</button>
+                </div>
+            </article>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+            <button class="boton" onclick="irASeccion('inicio')">
+                Regresar a la página principal
+            </button>
+        </div>
+    </section>
+
+    <!-- COMIDAS -->
+    <section id="comidas">
+        <h2 class="titulo-seccion">Mis comidas favoritas 🍽️</h2>
+        <p class="subtitulo">
+            Estas son algunas comidas que me llaman la atención y que me gustan.
+        </p>
+
+        <div class="rejilla">
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/qqMJQc2h/images.jpg"
+                    alt="Bao"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>Bao</h3>
+                    <p>
+                        El bao es un panecillo suave de origen asiático que
+                        puede prepararse con diferentes rellenos.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/pdHtqYHr/easy-tiramisu-square-29-735x735.jpg"
+                    alt="Tiramisú"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>Tiramisú</h3>
+                    <p>
+                        Es un postre italiano que combina capas suaves,
+                        café y una cubierta de cacao.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+            <button class="boton" onclick="irASeccion('inicio')">
+                Regresar a la página principal
+            </button>
+        </div>
+    </section>
+
+    <!-- PELÍCULAS Y SERIES -->
+    <section id="peliculas">
+        <h2 class="titulo-seccion">Películas o series 🎬</h2>
+        <p class="subtitulo">
+            Algunas historias que forman parte de mis gustos.
+        </p>
+
+        <div class="rejilla">
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/25wgGsTz/images.jpg"
+                    alt="El hogar de Miss Peregrine"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>El hogar de Miss Peregrine</h3>
+                    <p>
+                        Una película de fantasía y misterio sobre un lugar
+                        especial y personas con habilidades extraordinarias.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/VsTpKB9s/images.jpg"
+                    alt="El Mentalista"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>El Mentalista</h3>
+                    <p>
+                        Una serie de misterio en la que Patrick Jane utiliza
+                        su capacidad de observación para ayudar a resolver casos.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta">
+                <img
+                    src="https://i.postimg.cc/ZnrQ9XWL/images.jpg"
+                    alt="Los diarios de la boticaria"
+                >
+                <div class="tarjeta-contenido">
+                    <h3>Los diarios de la boticaria</h3>
+                    <p>
+                        Una historia de misterio en la que Maomao utiliza
+                        sus conocimientos para descubrir secretos.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+            <button class="boton" onclick="irASeccion('inicio')">
+                Regresar a la página principal
+            </button>
+        </div>
+    </section>
+
+    <!-- VENTANA DE DETALLE DE CADA FAMILIAR -->
+    <div id="detalle" role="dialog" aria-modal="true" aria-labelledby="detalle-titulo">
+        <div class="detalle-contenido">
+            <div class="icono">💗</div>
+            <h2 id="detalle-titulo">Mi familia</h2>
+
+            <img id="detalle-imagen" src="" alt="Foto del familiar">
+
+            <p id="detalle-descripcion"></p>
+
+            <button class="boton" onclick="volverAFamilia()">
+                Volver a Mi Familia
+            </button>
+
+            <button class="boton boton-claro" onclick="volverAlInicio()">
+                Regresar a la página principal
+            </button>
+        </div>
+    </div>
+
+    <footer class="final-pagina">
+        <strong>Mi Examen - Barbara Sanchez ♡</strong>
+        <p>Gracias por visitar mi página web.</p>
+        <p>Hecho con cariño 🌷</p>
+    </footer>
+
+    <script>
+        function irASeccion(id) {
+            const seccion = document.getElementById(id);
+
+            if (seccion) {
+                seccion.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        }
+
+        function mostrarDetalle(nombre, imagen, descripcion) {
+            document.getElementById("detalle-titulo").textContent = nombre;
+            document.getElementById("detalle-imagen").src = imagen;
+            document.getElementById("detalle-imagen").alt = "Foto de " + nombre;
+            document.getElementById("detalle-descripcion").textContent = descripcion;
+
+            document.getElementById("detalle").style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function cerrarDetalle() {
+            document.getElementById("detalle").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        function volverAFamilia() {
+            cerrarDetalle();
+            irASeccion("familia");
+        }
+
+        function volverAlInicio() {
+            cerrarDetalle();
+            irASeccion("inicio");
+        }
+
+        document.addEventListener("keydown", function(evento) {
+            if (evento.key === "Escape") {
+                cerrarDetalle();
+            }
+        });
+    </script>
+
+</body>
+</html>
+```
