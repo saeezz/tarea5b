@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Examen - Barbara Sanchez</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff8fc;
+            color: #333;
+        }
+
+        /* =========================
+           ENCABEZADO
+        ========================= */
+
+        header {
+            width: 100%;
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #e85d9e;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            border: none;
+            background: transparent;
+            color: #444;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            background: #ffe0ef;
+            color: #d83f87;
+        }
+
+        /* =========================
+           PÁGINAS
+        ========================= */
+
+        .pagina {
+            display: none;
+            min-height: calc(100vh - 80px);
+            padding: 70px 8%;
+        }
+
+        .pagina.activa {
+            display: block;
+        }
+
+        /* =========================
+           INICIO
+        ========================= */
+
+        #inicio {
+            min-height: 90vh;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #inicio.activa {
+            display: flex;
+        }
+
+        .inicio-contenido {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .inicio-texto {
+            flex: 1;
+        }
+
+        .inicio-texto h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 28px;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .inicio-texto h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 65px;
+            color: #e85d9e;
+            margin-bottom: 10px;
+        }
+
+        .inicio-texto h2 {
+            font-size: 22px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .inicio-texto p {
+            line-height: 1.8;
+            color: #666;
+            max-width: 600px;
+        }
+
+        .inicio-imagen {
+            flex: 1;
+            text-align: center;
+        }
+
+        .inicio-imagen img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid #ffe0ef;
+            box-shadow: 0 10px 30px rgba(232, 93, 158, 0.2);
+        }
+
+        /* =========================
+           BOTONES
+        ========================= */
+
+        .boton {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            background: #e85d9e;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .boton:hover {
+            background: #d83f87;
+            transform: translateY(-2px);
+        }
+
+        .boton-secundario {
+            background: #f6b5d3;
+            color: #70234b;
+        }
+
+        .boton-secundario:hover {
+            background: #ed91bd;
+        }
+
+        /* =========================
+           TITULOS
+        ========================= */
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .titulo h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 45px;
+            color: #e85d9e;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            color: #777;
+        }
+
+        /* =========================
+           SOBRE MÍ
+        ========================= */
+
+        .sobre-contenido {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+        }
+
+        .sobre-contenido h2 {
+            font-family: 'Fredoka', sans-serif;
+            color: #e85d9e;
+            margin-bottom: 15px;
+        }
+
+        .sobre-contenido p {
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .datos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .dato {
+            background: #fff0f7;
+            padding: 18px;
+            border-radius: 15px;
+        }
+
+        .dato i {
+            color: #e85d9e;
+            margin-right: 8px;
+        }
+
+        /* =========================
+           FAMILIA
+        ========================= */
+
+        .familia-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .familia-card {
+            background: white;
+            padding: 15px;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .familia-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(232, 93, 158, 0.2);
+        }
+
+        .familia-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #ffe0ef;
+            margin-bottom: 12px;
+        }
+
+        .familia-card h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: #e85d9e;
+            font-size: 20px;
+        }
+
+        .familia-card p {
+            color: #777;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           DETALLE FAMILIAR
+        ========================= */
+
+        .detalle-familiar {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 45px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .detalle-familiar img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid #ffe0ef;
+            margin-bottom: 25px;
+        }
+
+        .detalle-familiar h1 {
+            font-family: 'Fredoka', sans-serif;
+            color: #e85d9e;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .detalle-familiar p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           COMIDAS
+        ========================= */
+
+        .tarjetas {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-6px);
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .tarjeta-contenido {
+            padding: 20px;
+        }
+
+        .tarjeta h2 {
+            font-family: 'Fredoka', sans-serif;
+            color: #e85d9e;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           PELÍCULAS Y SERIES
+        ========================= */
+
+        .media-intro {
+            max-width: 850px;
+            margin: -20px auto 35px;
+            text-align: center;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .media-etiqueta {
+            max-width: 1000px;
+            margin: 35px auto 20px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 30px;
+            color: #d83f87;
+        }
+
+        /* =========================
+           PIE DE PÁGINA
+        ========================= */
+
+        footer {
+            background: #ffe0ef;
+            padding: 25px;
+            text-align: center;
+            color: #7a4160;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .inicio-contenido {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .inicio-texto h1 {
+                font-size: 48px;
+            }
+
+            .familia-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .datos {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .pagina {
+                padding: 45px 5%;
+            }
+
+            .inicio-imagen img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .inicio-texto h1 {
+                font-size: 40px;
+            }
+
+            .titulo h1 {
+                font-size: 35px;
+            }
+
+            .familia-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detalle-familiar img {
+                width: 230px;
+                height: 230px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         ENCABEZADO
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+            Mi Examen
+        </div>
+
+        <nav>
+            <button onclick="mostrarPagina('inicio')">
+                Inicio
+            </button>
+
+            <button onclick="mostrarPagina('sobre')">
+                Sobre Mí
+            </button>
+
+            <button onclick="mostrarPagina('familia')">
+                Mi Familia
+            </button>
+
+            <button onclick="mostrarPagina('comidas')">
+                Comidas
+            </button>
+
+            <button onclick="mostrarPagina('media')">
+                Películas o Series
+            </button>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         INICIO
+    ========================= -->
+
+    <section id="inicio" class="pagina activa">
+
+        <div class="inicio-contenido">
+
+            <div class="inicio-texto">
+
+                <h3>Hola, soy</h3>
+
+                <h1>Barbara Sanchez</h1>
+
+                <h2>
+                    Estudiante | 4.º Bachillerato en Computación
+                </h2>
+
+                <p>
+                    Bienvenidos a mi página web. En este pequeño
+                    proyecto quiero compartir un poco sobre mí,
+                    mi familia, algunas de mis comidas favoritas
+                    y las películas o series que me gustan.
+                </p>
+
+                <button class="boton" onclick="mostrarPagina('sobre')">
+                    Conocer más sobre mí
+                </button>
+
+            </div>
+
+
+            <div class="inicio-imagen">
+
+                <img
+                    src="https://i.postimg.cc/9fzGf0JK/cff48d2f-0572-4a84-af2c-2d6e8b49f350.jpg=400"
+                    alt="Foto de Barbara"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOBRE MÍ
+    ========================= -->
+
+    <section id="sobre" class="pagina">
+
+        <div class="titulo">
+
+            <h1>Sobre Mí</h1>
+
+            <p>
+                Un poco sobre quién soy
+            </p>
+
+        </div>
+
+
+        <div class="sobre-contenido">
+
+            <h2>Hola, soy Barbara</h2>
+
+            <p>
+                Mi nombre es Barbara Sanchez y soy estudiante de
+                4.º Bachillerato en Computación. Me interesa aprender
+                cosas nuevas, especialmente relacionadas con la
+                tecnología y la informática.
+            </p>
+
+            <p>
+                En esta página quise compartir algunas cosas que
+                forman parte de mi vida, como mi familia, mis comidas
+                favoritas y algunas películas y series que disfruto.
+            </p>
+
+            <h2>Información personal</h2>
+
+            <div class="datos">
+
+                <div class="dato">
+                    <i class="fa-solid fa-user"></i>
+                    <strong>Nombre:</strong>
+                    Barbara Sanchez
+                </div>
+
+                <div class="dato">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <strong>Estudios:</strong>
+                    4.º Bachillerato en Computación
+                </div>
+
+                <div class="dato">
+                    <i class="fa-solid fa-envelope"></i>
+                    <strong>Correo:</strong>
+                    rousselincarolina9@gmail.com
+                </div>
+
+                <div class="dato">
+                    <i class="fa-solid fa-palette"></i>
+                    <strong>Interés:</strong>
+                    Tecnología y creatividad
+                </div>
+
+            </div>
+
+            <button class="boton" onclick="regresarInicio()">
+                <i class="fa-solid fa-house"></i>
+                Regresar a la página principal
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MI FAMILIA
+    ========================= -->
+
+    <section id="familia" class="pagina">
+
+        <div class="titulo">
+
+            <h1>Mi Familia</h1>
+
+            <p>
+                Las personas importantes que forman parte de mi familia
+            </p>
+
+        </div>
+
+
+        <div class="familia-grid">
+
+
+            <!-- TÍO -->
+
+            <div
+                class="familia-card"
+                onclick="mostrarFamiliar('tio')"
+            >
+
+                <img
+                    src="https://i.postimg.cc/66Dv1rJq/463150eb-fa5f-48e5-8134-78fcd1973342.jpg"
+                    alt="Tío"
+                >
+
+                <h3>Mi Tío</h3>
+
+                <p>
+                    Haz clic para conocerlo
+                </p>
+
+            </div>
+
+
+            <!-- PRIMA -->
+
+            <div
+                class="familia-card"
+                onclick="mostrarFamiliar('prima')"
+            >
+
+                <img
+                    src="https://i.postimg.cc/66LhRb4g/78884ba5-4704-4298-9bb5-a2ecb56a9cb4.jpg"
+                    alt="Prima"
+                >
+
+                <h3>Mi Prima</h3>
+
+                <p>
+                    Haz clic para conocerla
+                </p>
+
+            </div>
+
+
+            <!-- MAMÁ -->
+
+            <div
+                class="familia-card"
+                onclick="mostrarFamiliar('mama')"
+            >
+
+                <img
+                    src="https://i.postimg.cc/wj35C6fZ/7d3128a8-a869-41c5-85e6-d639d82e634e.jpg"
+                    alt="Mamá"
+                >
+
+                <h3>Mi Mamá</h3>
+
+                <p>
+                    Haz clic para conocerla
+                </p>
+
+            </div>
+
+
+            <!-- ABUELO -->
+
+            <div
+                class="familia-card"
+                onclick="mostrarFamiliar('abuelo')"
+            >
+
+                <img
+                    src="https://i.postimg.cc/Kzhn3tGv/Captura-de-pantalla-2026-10-06-171513.png"
+                    alt="Abuelo"
+                >
+
+                <h3>Mi Abuelo</h3>
+
+                <p>
+                    Haz clic para conocerlo
+                </p>
+
+            </div>
+
+
+            <!-- ABUELA -->
+
+            <div
+                class="familia-card"
+                onclick="mostrarFamiliar('abuela')"
+            >
+
+                <img
+                    src="https://i.postimg.cc/Y9NQ6j0N/Captura-de-pantalla-2026-10-06-171535.png"
+                    alt="Abuela"
+                >
+
+                <h3>Mi Abuela</h3>
+
+                <p>
+                    Haz clic para conocerla
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div style="text-align:center;">
+
+            <button
+                class="boton"
+                onclick="regresarInicio()"
+            >
+                <i class="fa-solid fa-house"></i>
+                Regresar a la página principal
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PÁGINA INDIVIDUAL DE FAMILIA
+    ========================= -->
+
+    <section id="detalle" class="pagina">
+
+        <div class="detalle-familiar">
+
+            <img
+                id="detalleImagen"
+                src=""
+                alt="Familiar"
+            >
+
+            <h1 id="detalleNombre">
+                Nombre
+            </h1>
+
+            <p id="detalleFrase">
+                Frase
+            </p>
+
+            <br>
+
+            <button
+                class="boton boton-secundario"
+                onclick="mostrarPagina('familia')"
+            >
+                <i class="fa-solid fa-arrow-left"></i>
+                Volver a Mi Familia
+            </button>
+
+            <br>
+
+            <button
+                class="boton"
+                onclick="regresarInicio()"
+            >
+                <i class="fa-solid fa-house"></i>
+                Regresar a la página principal
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COMIDAS
+    ========================= -->
+
+    <section id="comidas" class="pagina">
+
+        <div class="titulo">
+
+            <h1>Comidas</h1>
+
+            <p>
+                Algunas comidas que me gustan
+            </p>
+
+        </div>
+
+
+        <div class="tarjetas">
+
+
+            <!-- BAO -->
+
+            <div class="tarjeta">
+
+                <img
+                    src="https://i.postimg.cc/qqMJQc2h/images.jpg"
+                    alt="Bao"
+                >
+
+                <div class="tarjeta-contenido">
+
+                    <h2>Bao</h2>
+
+                    <p>
+                        Me gusta el bao porque es una comida diferente,
+                        suave y muy agradable de comer.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PUPUSAS -->
+
+            <div class="tarjeta">
+
+                <img
+                    src="https://i.postimg.cc/L4N657MV/images.jpg"
+                    alt="Pupusas"
+                >
+
+                <div class="tarjeta-contenido">
+
+                    <h2>Pupusas</h2>
+
+                    <p>
+                        Las pupusas son una de mis comidas favoritas
+                        porque son deliciosas y tienen diferentes
+                        opciones de relleno.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- TIRAMISÚ -->
+
+            <div class="tarjeta">
+
+                <img
+                    src="https://i.postimg.cc/pdHtqYHr/easy-tiramisu-square-29-735x735.jpg"
+                    alt="Tiramisú"
+                >
+
+                <div class="tarjeta-contenido">
+
+                    <h2>Tiramisú</h2>
+
+                    <p>
+                        Me gusta el tiramisú porque es un postre
+                        cremoso y tiene un sabor muy especial.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div style="text-align:center;">
+
+            <button
+                class="boton"
+                onclick="regresarInicio()"
+            >
+                <i class="fa-solid fa-house"></i>
+                Regresar a la página principal
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PELÍCULAS O SERIES
+    ========================= -->
+
+    <section id="media" class="pagina">
+
+        <div class="titulo">
+
+            <h1>Películas o Series</h1>
+
+            <p>
+                Algunas de mis favoritas
+            </p>
+
+        </div>
+
+
+        <p class="media-intro">
+            En esta sección puse una película y algunas series
+            que me gustan. Son historias que me parecen interesantes
+            y entretenidas.
+        </p>
+
+
+        <!-- PELÍCULA -->
+
+        <h2 class="media-etiqueta">
+            <i class="fa-solid fa-film"></i>
+            Mi Película Favorita
+        </h2>
+
+
+        <div class="tarjetas">
+
+
+            <div class="tarjeta">
+
+                <img
+                    src="https://i.postimg.cc/25wgGsTz/images.jpg"
+                    alt="El hogar de Miss Peregrine"
+                >
+
+                <div class="tarjeta-contenido">
+
+                    <h2>
+                        El hogar de Miss Peregrine
+                    </h2>
+
+                    <p>
+                        Es una película de fantasía que me gusta
+                        por su historia, sus personajes y el mundo
+                        diferente que presenta.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SERIES -->
+
+        <h2 class="media-etiqueta">
+            <i class="fa-solid fa-tv"></i>
+            Mis Series Favoritas
+        </h2>
+
+
+        <div class="tarjetas">
+
+
+            <!-- EL MENTALISTA -->
+
+            <div class="tarjeta">
+
+                <img
+                    src="https://i.postimg.cc/VsTpKB9s/images.jpg"
+                    alt="El Mentalista"
+                >
+
+                <div class="tarjeta-contenido">
+
+                    <h2>
+                        El Mentalista
+                    </h2>
+
+                    <p>
+                        Me gusta por sus misterios, investigaciones
+                        y por la forma en que se resuelven los casos.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOS DIARIOS DE LA BOTICARIA -->
+
+            <div class="tarjeta">
+
+                <img
+                    src="https://i.postimg.cc/ZnrQ9XWL/images.jpg"
+                    alt="Los diarios de la boticaria"
+                >
+
+                <div class="tarjeta-contenido">
+
+                    <h2>
+                        Los diarios de la boticaria
+                    </h2>
+
+                    <p>
+                        Me gusta por su historia, sus personajes y
+                        los misterios que aparecen durante la serie.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div style="text-align:center;">
+
+            <button
+                class="boton"
+                onclick="regresarInicio()"
+            >
+                <i class="fa-solid fa-house"></i>
+                Regresar a la página principal
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Barbara Sanchez
+        </p>
+
+        <p>
+            Mi Examen | 4.º Bachillerato en Computación
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* Mostrar una página */
+
+        function mostrarPagina(id) {
+
+            const paginas = document.querySelectorAll('.pagina');
+
+            paginas.forEach(function(pagina) {
+                pagina.classList.remove('activa');
+            });
+
+            const paginaSeleccionada = document.getElementById(id);
+
+            if (paginaSeleccionada) {
+                paginaSeleccionada.classList.add('activa');
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+
+        /* Regresar al inicio */
+
+        function regresarInicio() {
+
+            mostrarPagina('inicio');
+
+        }
+
+
+        /* Información de los familiares */
+
+        const familiares = {
+
+            tio: {
+                nombre: "Mi Tío",
+                imagen: "https://i.postimg.cc/66Dv1rJq/463150eb-fa5f-48e5-8134-78fcd1973342.jpg",
+                frase: "Una persona especial que forma parte de mi familia y que siempre tendrá un lugar importante en mi vida."
+            },
+
+            prima: {
+                nombre: "Mi Prima",
+                imagen: "https://i.postimg.cc/66LhRb4g/78884ba5-4704-4298-9bb5-a2ecb56a9cb4.jpg",
+                frase: "Mi prima es una persona especial con quien puedo compartir momentos y buenos recuerdos."
+            },
+
+            mama: {
+                nombre: "Mi Mamá",
+                imagen: "https://i.postimg.cc/wj35C6fZ/7d3128a8-a869-41c5-85e6-d639d82e634e.jpg",
+                frase: "Mi mamá es una de las personas más importantes de mi vida y siempre ha estado para apoyarme."
+            },
+
+            abuelo: {
+                nombre: "Mi Abuelo",
+                imagen: "https://i.postimg.cc/Kzhn3tGv/Captura-de-pantalla-2026-10-06-171513.png",
+                frase: "Mi abuelo es una persona muy especial para mí y alguien de quien puedo aprender muchas cosas."
+            },
+
+            abuela: {
+                nombre: "Mi Abuela",
+                imagen: "https://i.postimg.cc/Y9NQ6j0N/Captura-de-pantalla-2026-10-06-171535.png",
+                frase: "Mi abuela es una persona muy importante en mi vida y sus recuerdos siempre serán especiales para mí."
+            }
+
+        };
+
+
+        /* Abrir página individual */
+
+        function mostrarFamiliar(persona) {
+
+            const familiar = familiares[persona];
+
+            document.getElementById("detalleImagen").src = familiar.imagen;
+
+            document.getElementById("detalleNombre").textContent = familiar.nombre;
+
+            document.getElementById("detalleFrase").textContent = familiar.frase;
+
+            mostrarPagina("detalle");
+
+        }
+
+    </script>
+
+</body>
+</html>
